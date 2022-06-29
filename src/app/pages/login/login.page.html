@@ -1,0 +1,47 @@
+
+
+<ion-content>
+  <br><br>
+  <section class="relative mt-20 max-w-md px-5 py-4 mx-auto">
+    <h2 class="text-lg font-semibold  capitalize text-white text-center">Welcome back.</h2>
+    
+    <form   [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+          
+            
+
+            <div>
+                <label class="text-white">Email Address</label>
+                <input  type="email" formControlName="email" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+            </div>
+           
+          <div>
+            <div class="flex">
+              <label class="text-white">Password</label>
+            <div class="flex items-end">
+              <label class="block text-gray-500 ml font-bold">
+               
+                <span class="text-sm ml-32">
+                 Forgot password?
+                </span>
+              </label>
+            </div>
+            </div>
+            <input  type="password" formControlName="password" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+        </div>
+
+            
+        </div>
+
+        <div class="flex justify-center mt-6">
+            <button class="px-6 py-2 leading-5 w-32 text-white transition-colors duration-200 transform bg-[#73607C] rounded-md">Login</button>
+            
+        </div>
+        <div class="flex justify-center mt-2">
+          <a class="text-gray-200"  [routerLink]="['/register']">Don't have account? Join Us</a>
+        </div>
+        
+    </form>
+</section>
+
+</ion-content>

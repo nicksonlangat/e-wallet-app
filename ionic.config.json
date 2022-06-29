@@ -1,0 +1,7 @@
+{
+  "name": "e-wallet",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

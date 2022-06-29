@@ -1,0 +1,93 @@
+<ion-header class="bg-gray-900">
+  <ion-toolbar >
+    <div class="flex justify-between ion-padding">
+     <p class="text-white ">
+      Hi {{user?.last_name}},
+     </p>
+      <h6 class="text-white uppercase mt-0">my wallet</h6>
+      
+      <h2 (click)="logOut()" class="text-white mt-0 relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+      </h2>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="mt-6 title w-full max-w-sm mx-auto overflow-hidden rounded-lg bg-slate-700">
+    <br>
+    <p class="text-slate-500 ml-4">Available balance</p>
+   <div class="mb-4">
+    <p class="text-white text-3xl ml-4 font-mono ">KES {{wallet?.wallet_balance}}</p>
+   </div>
+   <br>
+    <div class="grid grid-cols-3 ml-4">
+      <button [routerLink]="['/transactions']" [queryParams]="{ type: 'Withdrawal'}" type="button" class="text-white bg-[#73607C]  font-medium rounded text-sm px-6 py-2.5 mr-2 mb-2">
+        <p class="flex">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          Send
+        </p>
+      </button>
+      
+      <button [routerLink]="['/transactions']" [queryParams]="{ type: 'Deposit'}" type="button" class="text-white bg-[#E9EBED]  font-medium rounded text-sm px-5 py-2.5  mr-2 mb-2">
+        
+        <p class="flex text-black">
+          <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          Deposit</p>
+      </button>
+      <button [routerLink]="['/transactions']" [queryParams]="{ type: 'Self-Withdrawal'}" type="button" class="text-white bg-emerald-600  font-medium rounded text-sm px-6 py-2.5  mr-2 mb-2">
+        <p class="flex">
+          
+          Withdraw
+        </p>
+      </button>
+    </div>
+    <div class="mt-2"></div>
+  </div>
+  
+  
+  <div class="w-full  px-4 py-3 mx-auto">
+    <div class="flex items-center justify-between">
+        <span class="text-lg font-semibold text-white mt-4">Recent Transactions</span>
+        <span class="px-3 py-1 text-xs text-white uppercase rounded-full ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </span>
+    </div>
+
+    <br>
+    <div *ngFor="let transaction of transactions " class="mb-2 flex w-full max-w-sm mx-auto overflow-hidden rounded-lg bg-slate-800">
+     
+
+      <div class="flex items-center px-2 py-3">
+          <img class="object-cover w-10 h-10 rounded-full" alt="User avatar" src="../../assets/user.svg">
+          
+          <div class="mx-3">
+              <p *ngIf="transaction.recipient.id == user.id" class="text-white">From {{transaction.sender.first_name}}<br>
+                 <small>{{transaction.transaction_date | date:'short'}}</small>
+                </p>
+                <p *ngIf="transaction.recipient.id != user.id" class="text-white">To {{transaction.recipient.first_name}}<br>
+                  <small>{{transaction.transaction_date | date:'short'}}</small>
+                 </p>
+          </div>
+          <div class="mx-3 ml-28">
+            <p *ngIf="transaction.recipient.id == user.id" class="text-emerald-600">+ {{transaction.amount}} <br>
+              <small class="text-white">{{transaction.transaction_code}}</small>
+              </p>
+              <p *ngIf="transaction.recipient.id != user.id" class="text-red-600">- {{transaction.amount}}<br>
+                <small class="text-white">{{transaction.transaction_code}}</small>
+                </p>
+        </div>
+      </div>
+      
+  </div>
+  
+</div>
+</ion-content>

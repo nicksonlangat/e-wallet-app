@@ -1,0 +1,57 @@
+<ion-header class="bg-gray-900">
+  <ion-toolbar >
+    <div class="flex justify-between ion-padding">
+      <h2 class="text-white mt-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+      </h2>
+      <h6 class="text-white uppercase mt-0">my transactions</h6>
+      
+      <h2 (click)="logOut()" class="text-white mt-0 relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+      </h2>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <section class="relative w-full max-w-md px-5 py-4 mx-auto rounded-md">
+    <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </span>
+
+        <input type="text" [(ngModel)]="filterTerm" class="w-full py-3 pl-10 pr-4 text-white bg-[#151a20] border rounded-md focus:border-white focus:outline-none focus:ring-white" placeholder="Search by transaction ID">
+    </div>
+  </section>
+  <div *ngFor="let transaction of transactions | filter:filterTerm " class="mb-2 flex w-full max-w-sm mx-auto overflow-hidden rounded-lg bg-slate-800">
+     
+
+    <div class="flex items-center px-2 py-3">
+        <img class="object-cover w-10 h-10 rounded-full" alt="User avatar" src="../../assets/user.svg">
+        
+        <div class="mx-3">
+          <p *ngIf="transaction.recipient.id == user.id" class="text-white">From {{transaction.sender.first_name}}<br>
+             <small>{{transaction.transaction_date | date:'short'}}</small>
+            </p>
+            <p *ngIf="transaction.recipient.id != user.id" class="text-white">To {{transaction.recipient.first_name}}<br>
+              <small>{{transaction.transaction_date | date:'short'}}</small>
+             </p>
+      </div>
+      <div class="mx-3 ml-28">
+        <p *ngIf="transaction.recipient.id == user.id" class="text-emerald-600">+ {{transaction.amount}} <br>
+          <small class="text-white">{{transaction.transaction_code}}</small>
+          </p>
+          <p *ngIf="transaction.recipient.id != user.id" class="text-red-600">- {{transaction.amount}}<br>
+            <small class="text-white">{{transaction.transaction_code}}</small>
+            </p>
+    </div>
+    </div>
+</div>
+</ion-content>

@@ -1,0 +1,49 @@
+
+
+<ion-content>
+  <br><br>
+  <section class="relative  max-w-md px-5 py-4 mx-auto">
+    <h2 class="text-lg font-semibold  capitalize text-white text-center">Join Us Today</h2>
+    
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+          
+            
+
+            <div>
+                <label class="text-white">Email Address</label>
+                <input  formControlName="email" type="email" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+            </div>
+            <div>
+              <label class="text-white">First Name</label>
+              <input  formControlName="first_name" type="text" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+          </div>
+          <div>
+            <label class="text-white">Last Name</label>
+            <input  formControlName="last_name" type="text" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+        </div>
+        <div>
+          <label class="text-white">Phone Number</label>
+          <input  formControlName="phone_number" type="text" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+      </div>
+           
+          <div>
+            <label class="text-white">Password</label>
+            <input  formControlName="password"  type="password" class="block w-full px-4 py-2 mt-2  rounded-md bg-[#151a20] text-white border-white focus:border-white focus:ring-white  focus:border-white focus:outline-none focus:ring">
+        </div>
+
+            
+        </div>
+
+        <div class="flex justify-center mt-6">
+            <button class="px-6 py-2 leading-5 w-32 text-white transition-colors duration-200 transform bg-[#73607C] rounded-md">Register</button>
+            
+        </div>
+        <div class="flex justify-center mt-2">
+          <a class="text-gray-200" [routerLink]="['/login']">Already In? Login</a>
+        </div>
+        
+    </form>
+</section>
+
+</ion-content>

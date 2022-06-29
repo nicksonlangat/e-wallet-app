@@ -1,0 +1,63 @@
+<ion-header class="bg-gray-900">
+  <ion-toolbar >
+    <div class="flex justify-between ion-padding">
+      <h2 class="text-white mt-0">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+      </h2>
+      <h6 class="text-white uppercase mt-0">my transactions</h6>
+      
+      <h2 (click)="logOut()" class="text-white mt-0 relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+      </h2>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <br>
+  <!-- <div class="flex justify-center mt-2">
+    <a [routerLink]="['/register']">New here? Join Us</a>
+  </div> -->
+  <br>
+  <div class="max-w-sm mx-auto overflow-hidden rounded-lg shadow-2xl">
+    <div class="px-6 py-4">
+      <div class="rounded-full h-20 w-20 flex items-center justify-center bg-gray-600 mx-auto mb-2"></div>
+        <h1 class="text-xl font-semibold text-center  text-white">Nick Langat</h1>
+
+        
+        <div class="flex items-center mt-4 text-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+
+            <h1 class="px-2 text-sm">0713754946</h1>
+        </div>
+
+        <div class="flex items-center mt-4 text-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+
+            <h1 class="px-2 text-sm">4231567241</h1>
+        </div>
+
+        <div class="flex items-center mt-4 text-gray-200">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.00977 5.83789C3.00977 5.28561 3.45748 4.83789 4.00977 4.83789H20C20.5523 4.83789 21 5.28561 21 5.83789V17.1621C21 18.2667 20.1046 19.1621 19 19.1621H5C3.89543 19.1621 3 18.2667 3 17.1621V6.16211C3 6.11449 3.00333 6.06765 3.00977 6.0218V5.83789ZM5 8.06165V17.1621H19V8.06199L14.1215 12.9405C12.9499 14.1121 11.0504 14.1121 9.87885 12.9405L5 8.06165ZM6.57232 6.80554H17.428L12.7073 11.5263C12.3168 11.9168 11.6836 11.9168 11.2931 11.5263L6.57232 6.80554Z"/>
+            </svg>
+            
+            <h1 class="px-2 text-sm">nicksonlangat95@gmail.com</h1>
+        </div>
+    </div>
+    <div class="flex justify-start w-full px-3 mb-6 ml-4">
+        
+      <button class="shadow bg-[#73607C]  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" type="submit">
+       Logout
+      </button>
+      
+    </div>
+</div>
+</ion-content>
